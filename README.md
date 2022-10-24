@@ -21,12 +21,12 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 ### Dev Dependencies
 
 - [Nodemon](https://www.npmjs.com/package/nodemon)
-- [dotenv](https://www.npmjs.com/package/dotenv)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Mocha](https://www.npmjs.com/package/mocha)
 - [Chai](https://www.npmjs.com/package/chai)
 - [Supertest](https://www.npmjs.com/package/supertest)
 - [Faker](https://www.npmjs.com/package/@faker-js/faker)
-- [sinon](https://www.npmjs.com/package/sinon)
+- [Sinon](https://www.npmjs.com/package/sinon)
 
 ## Setup
 
