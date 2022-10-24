@@ -10,6 +10,7 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 
 1. [Dependencies](#dependencies)
 2. [Setup](#setup)
+3. [Commands](#commands)
 3. [Routes](#routes)
 4. [Attribution](#attribution)
 
