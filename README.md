@@ -1,6 +1,6 @@
 # Music-Library
 
-An Express.js API that interacts with a mySQL database via CRUD requests to store and interact with data containing artists and albums information.
+An Express.js API that interacts with a mySQL database via CRUD requests to store and interact with data containing artists, albums and song information.
 
 Implements Test-Driven development using Mocha and Chai.
 
