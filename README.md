@@ -98,125 +98,28 @@ $ npm run prettier
 
 ## Routes
 
-### /artist
+| Method | Route                    | Description                                                              | Schema (JSON)                                                   |
+| ------ | ------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------- |
+| POST   | /artist                  | Creates a new artist                                                     | <pre>{<br /> "name": STRING,<br /> "genre": STRING <br />}      |
+| GET    | /artist                  | Returns all artists                                                      | N/A                                                             |
+| GET    | /artist/{artistId}       | Returns artist with specified ID                                         | N/A                                                             |
+| PATCH  | /artist/{artistId}       | Updates artist with specified ID                                         | <pre>{<br /> "name"?: STRING,<br /> "genre"?: STRING <br />}    |
+| DELETE | /artist/{artistId}       | Deletes artist with specified ID                                         | N/A                                                             |
+| POST   | /artist/{artistId}/album | Creates a new album and links it to the artist with the specified ID     | <pre>{<br /> "name": STRING,<br /> "year": INTEGER<br />}       |
+| GET    | /artist/{artistId}/album | Returns all albums that are linked with the artist with the specified ID | N/A                                                             |
+| GET    | /artist/{artistId}/song  | Returns all songs that are linked with the artist with the specified ID  | N/A                                                             |
+| GET    | /album                   | Returns all albums                                                       | N/A                                                             |
+| GET    | /album/{albumId}         | Returns album with specified ID                                          | N/A                                                             |
+| PATCH  | /album/{albumId}         | Updates album with specified ID                                          | <pre>{<br /> "name"?: STRING,<br /> "year"?: INTEGER<br />}     |
+| DELETE | /album/{albumId}         | Deletes album with specified ID                                          | N/A                                                             |
+| POST   | /album/{albumId}/song    | Creates a new song and links it to the album with the specified ID       | <pre>{<br /> "name": STRING,<br /> "position": INTEGER<br />}   |
+| GET    | /album/{albumId}/song    | Returns all songs that are linked with the album with the specified ID   | N/A                                                             |
+| GET    | /song                    | Returns all songs                                                        | N/A                                                             |
+| GET    | /song/{songId}           | Returns song with specified ID                                           | N/A                                                             |
+| PATCH  | /song/{songId}           | Updates song with specified ID                                           | <pre>{<br /> "name"?: STRING,<br /> "position"?: INTEGER<br />} |
+| DELETE | /song/{songId}           | Deletes song with specified ID                                           | N/A                                                             |
 
-#### POST /artist
-
-Creates a new artist. Body must be sent as JSON following this schema:
-
-```
-{
-    "name": STRING,
-    "genre": STRING
-}
-```
-
-#### GET /artist
-
-return all artists.
-
-#### GET /artist/{artistId}
-
-Gets the artist with the specifed ID.
-
-#### PATCH /artist/{artistId}
-
-Updates an artist with the specified ID when passed JSON follwing this schema. `?` denotes optional variables:
-
-```
-{
-    "name"?: STRING,
-    "genre"?: STRING
-}
-```
-
-#### DELETE /artist/{artistId}
-
-Deletes the artist with the specified ID and all associated albums and songs.
-
-#### POST /artist/{artistId}/album
-
-Creates a new album and links it to the artist with the specified ID, when passed a JSON body that follows the following schema:
-
-```
-{
-    "name": STRING,
-    "year": INTEGER
-}
-```
-
-#### GET /artist/{artistId}/album
-
-Gets all albums that are linked with the artist with the specified ID.
-
-#### GET /artist/{artistId}/song
-
-Gets all songs that are linked with the artist with the specified ID.
-
-### /album
-
-#### GET /album
-
-returns all albums.
-
-#### GET /album/{albumId}
-
-Gets the album with the specified ID.
-
-#### PATCH /album/{albumId}
-
-Updates an album with the specified ID when passed JSON following this schema. `?` denotes optional variables::
-
-```
-{
-    "name"?: STRING,
-    "year"?: INTEGER
-}
-```
-
-#### DELETE /album/{albumId}
-
-Deletes the album with the specified ID.
-
-#### POST /album/{albumId}/song
-
-Creates a new song and links it to the album with the specified ID, when passed a JSON body that follows the following schema:
-
-```
-{
-    "name": STRING,
-    "position": INTEGER
-}
-```
-
-#### GET /album/{albumId}/song
-
-Gets all songs that are linked with the album with the specified ID.
-
-### /song
-
-#### GET /song
-
-returns all songs.
-
-#### GET /song/{songId}
-
-Gets the song with the specified ID.
-
-#### PATCH /song/{songId}
-
-Updates the song with the specified ID when passed JSON following this schema. `?` denotes optional variables::
-
-```
-{
-    "name"?: STRING,
-    "position"?: INTEGER
-}
-```
-
-#### DELETE /song/{songId}
-
-Deletes the song with the specified ID.
+<sub>? In Schema represents optional field</sub>
 
 ## Attribution
 

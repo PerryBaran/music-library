@@ -4,16 +4,15 @@ const songController = require('../controllers/song');
 
 const router = express.Router();
 
-router.get('/', albumController.getAll);
-
-router.get('/:albumId', albumController.getById);
-
-router.patch('/:albumId', albumController.patch);
-
-router.delete('/:albumId', albumController.delete);
-
-router.post('/:albumId/song', songController.post);
-
-router.get('/:albumId/song', songController.getAllByAlbumId);
+router.route('/').get(albumController.getAll);
+router
+  .route('/:albumId')
+  .get(albumController.getById)
+  .patch(albumController.patch)
+  .delete(albumController.delete);
+router
+  .route('/:albumId/song')
+  .post(songController.post)
+  .get(songController.getAllByAlbumId);
 
 module.exports = router;

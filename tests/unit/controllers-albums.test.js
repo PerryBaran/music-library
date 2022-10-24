@@ -50,7 +50,6 @@ describe('album controller', () => {
       await album.post(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledTwice(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Artist WHERE id = ?`, [
         artistId,
@@ -60,10 +59,8 @@ describe('album controller', () => {
         `INSERT INTO Album (name, year, artistId) VALUES (?, ?, ?)`,
         [name, year, artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 201);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -74,15 +71,12 @@ describe('album controller', () => {
       await album.post(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Artist WHERE id = ?`, [
         artistId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -93,15 +87,12 @@ describe('album controller', () => {
       await album.post(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Artist WHERE id = ?`, [
         artistId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -115,16 +106,12 @@ describe('album controller', () => {
       await album.getAll(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, 'SELECT * FROM Album');
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -134,13 +121,10 @@ describe('album controller', () => {
       await album.getAll(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, 'SELECT * FROM Album');
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -154,18 +138,14 @@ describe('album controller', () => {
       await album.getById(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Album WHERE id = ?`, [
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -175,15 +155,12 @@ describe('album controller', () => {
       await album.getById(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Album WHERE id = ?`, [
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -193,15 +170,12 @@ describe('album controller', () => {
       await album.getById(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Album WHERE id = ?`, [
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -215,7 +189,6 @@ describe('album controller', () => {
       await album.getAllByArtistId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
@@ -225,10 +198,8 @@ describe('album controller', () => {
 
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -238,17 +209,14 @@ describe('album controller', () => {
       await album.getAllByArtistId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Album WHERE artistId = ?`,
         [req.params.artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -258,17 +226,14 @@ describe('album controller', () => {
       await album.getAllByArtistId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Album WHERE artistId = ?`,
         [req.params.artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -280,16 +245,13 @@ describe('album controller', () => {
       await album.patch(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `UPDATE Album SET ? WHERE id = ?`, [
         req.body,
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -299,16 +261,13 @@ describe('album controller', () => {
       await album.patch(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `UPDATE Album SET ? WHERE id = ?`, [
         req.body,
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -318,16 +277,13 @@ describe('album controller', () => {
       await album.patch(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `UPDATE Album SET ? WHERE id = ?`, [
         req.body,
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -339,15 +295,12 @@ describe('album controller', () => {
       await album.delete(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `DELETE FROM Album WHERE id = ?`, [
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -357,15 +310,12 @@ describe('album controller', () => {
       await album.delete(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `DELETE FROM Album WHERE id = ?`, [
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -375,15 +325,12 @@ describe('album controller', () => {
       await album.delete(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `DELETE FROM Album WHERE id = ?`, [
         req.params.albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });

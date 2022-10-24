@@ -21,10 +21,8 @@ describe('read song', () => {
       await setupArtist(db, 3);
       [artists] = await db.query('SELECT * from Artist');
 
-      
       await setupAlbum(db, artists[0]);
       await setupAlbum(db, artists[1]);
-      
 
       [albums] = await db.query('SELECT * from Album');
 

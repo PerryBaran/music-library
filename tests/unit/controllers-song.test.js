@@ -52,7 +52,6 @@ describe('song controller', () => {
       await song.post(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledTwice(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Album WHERE id = ?`, [
         albumId,
@@ -62,10 +61,8 @@ describe('song controller', () => {
         `INSERT INTO Song (name, position, albumId, artistId) VALUES (?, ?, ?, ?)`,
         [name, position, albumId, artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 201);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -76,15 +73,12 @@ describe('song controller', () => {
       await song.post(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Album WHERE id = ?`, [
         albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -95,15 +89,12 @@ describe('song controller', () => {
       await song.post(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Album WHERE id = ?`, [
         albumId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -117,16 +108,12 @@ describe('song controller', () => {
       await song.getAll(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, 'SELECT * FROM Song');
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -136,13 +123,10 @@ describe('song controller', () => {
       await song.getAll(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, 'SELECT * FROM Song');
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -156,18 +140,14 @@ describe('song controller', () => {
       await song.getById(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Song WHERE id = ?`, [
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -177,15 +157,12 @@ describe('song controller', () => {
       await song.getById(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Song WHERE id = ?`, [
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -195,15 +172,12 @@ describe('song controller', () => {
       await song.getById(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `SELECT * FROM Song WHERE id = ?`, [
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -217,20 +191,16 @@ describe('song controller', () => {
       await song.getAllByArtistId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Song WHERE artistId = ?`,
         [req.params.artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -240,17 +210,14 @@ describe('song controller', () => {
       await song.getAllByArtistId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Song WHERE artistId = ?`,
         [req.params.artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -260,17 +227,14 @@ describe('song controller', () => {
       await song.getAllByArtistId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Song WHERE artistId = ?`,
         [req.params.artistId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -284,20 +248,16 @@ describe('song controller', () => {
       await song.getAllByAlbumId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Song WHERE albumId = ?`,
         [req.params.albumId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(jsonStub);
       sinon.assert.calledWith(jsonStub, data);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -307,17 +267,14 @@ describe('song controller', () => {
       await song.getAllByAlbumId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Song WHERE albumId = ?`,
         [req.params.albumId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -327,17 +284,14 @@ describe('song controller', () => {
       await song.getAllByAlbumId(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(
         queryStub,
         `SELECT * FROM Song WHERE albumId = ?`,
         [req.params.albumId]
       );
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -349,16 +303,13 @@ describe('song controller', () => {
       await song.patch(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `UPDATE Song SET ? WHERE id = ?`, [
         req.body,
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -368,16 +319,13 @@ describe('song controller', () => {
       await song.patch(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `UPDATE Song SET ? WHERE id = ?`, [
         req.body,
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -387,16 +335,13 @@ describe('song controller', () => {
       await song.patch(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `UPDATE Song SET ? WHERE id = ?`, [
         req.body,
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
@@ -408,15 +353,12 @@ describe('song controller', () => {
       await song.delete(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `DELETE FROM Song WHERE id = ?`, [
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 200);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -426,15 +368,12 @@ describe('song controller', () => {
       await song.delete(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `DELETE FROM Song WHERE id = ?`, [
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 404);
-
       sinon.assert.calledOnce(endStub);
     });
 
@@ -444,15 +383,12 @@ describe('song controller', () => {
       await song.delete(req, res);
 
       sinon.assert.calledOnce(getDbStub);
-
       sinon.assert.calledOnce(queryStub);
       sinon.assert.calledWith(queryStub, `DELETE FROM Song WHERE id = ?`, [
         req.params.songId,
       ]);
-
       sinon.assert.calledOnce(statusStub);
       sinon.assert.calledWith(statusStub, 500);
-
       sinon.assert.calledOnce(endStub);
     });
   });
