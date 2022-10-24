@@ -46,7 +46,7 @@ $ docker run -d -p 3307:3306 --name music_library_mysql -e MYSQL_ROOT_PASSWORD=p
 
 ### Environment variables
 
-You will need to create a file to store your enviroment variables. These credentials allow you to connect to the database. Two enviroments will need to be created, one for production and one for testing.
+You will need to create a file to store your environment variables. These credentials allow you to connect to the database. Two environments will need to be created, one for production and one for testing.
 
 Create a `.env` file in the root of the repo with the following values:
 
