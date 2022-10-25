@@ -11,8 +11,8 @@ Created as part of the Manchester Codes full-stack web development boot-camp.
 1. [Dependencies](#dependencies)
 2. [Setup](#setup)
 3. [Commands](#commands)
-3. [Routes](#routes)
-4. [Attribution](#attribution)
+4. [Routes](#routes)
+5. [Attribution](#attribution)
 
 ## Dependencies
 
@@ -99,28 +99,40 @@ $ npm run prettier
 
 ## Routes
 
-| Method | Route                    | Description                                                              | Schema (JSON)                                                   |
-| ------ | ------------------------ | ------------------------------------------------------------------------ | --------------------------------------------------------------- |
-| POST   | /artist                  | Creates a new artist                                                     | <pre>{<br /> "name": STRING,<br /> "genre": STRING <br />}      |
-| GET    | /artist                  | Returns all artists                                                      | N/A                                                             |
-| GET    | /artist/{artistId}       | Returns artist with specified ID                                         | N/A                                                             |
-| PATCH  | /artist/{artistId}       | Updates artist with specified ID                                         | <pre>{<br /> "name"?: STRING,<br /> "genre"?: STRING <br />}    |
-| DELETE | /artist/{artistId}       | Deletes artist with specified ID                                         | N/A                                                             |
-| POST   | /artist/{artistId}/album | Creates a new album and links it to the artist with the specified ID     | <pre>{<br /> "name": STRING,<br /> "year": INTEGER<br />}       |
-| GET    | /artist/{artistId}/album | Returns all albums that are linked with the artist with the specified ID | N/A                                                             |
-| GET    | /artist/{artistId}/song  | Returns all songs that are linked with the artist with the specified ID  | N/A                                                             |
-| GET    | /album                   | Returns all albums                                                       | N/A                                                             |
-| GET    | /album/{albumId}         | Returns album with specified ID                                          | N/A                                                             |
-| PATCH  | /album/{albumId}         | Updates album with specified ID                                          | <pre>{<br /> "name"?: STRING,<br /> "year"?: INTEGER<br />}     |
-| DELETE | /album/{albumId}         | Deletes album with specified ID                                          | N/A                                                             |
-| POST   | /album/{albumId}/song    | Creates a new song and links it to the album with the specified ID       | <pre>{<br /> "name": STRING,<br /> "position": INTEGER<br />}   |
-| GET    | /album/{albumId}/song    | Returns all songs that are linked with the album with the specified ID   | N/A                                                             |
-| GET    | /song                    | Returns all songs                                                        | N/A                                                             |
-| GET    | /song/{songId}           | Returns song with specified ID                                           | N/A                                                             |
-| PATCH  | /song/{songId}           | Updates song with specified ID                                           | <pre>{<br /> "name"?: STRING,<br /> "position"?: INTEGER<br />} |
-| DELETE | /song/{songId}           | Deletes song with specified ID                                           | N/A                                                             |
-
 <sub>? In Schema represents optional field</sub>
+
+### /artist
+
+| Method | Route                    | Description                                                              | Schema (JSON)                                                |
+| ------ | ------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| POST   | /artist                  | Creates a new artist                                                     | <pre>{<br /> "name": STRING,<br /> "genre": STRING <br />}   |
+| GET    | /artist                  | Returns all artists                                                      | N/A                                                          |
+| GET    | /artist/{artistId}       | Returns artist with specified ID                                         | N/A                                                          |
+| PATCH  | /artist/{artistId}       | Updates artist with specified ID                                         | <pre>{<br /> "name"?: STRING,<br /> "genre"?: STRING <br />} |
+| DELETE | /artist/{artistId}       | Deletes artist with specified ID                                         | N/A                                                          |
+| POST   | /artist/{artistId}/album | Creates a new album and links it to the artist with the specified ID     | <pre>{<br /> "name": STRING,<br /> "year": INTEGER<br />}    |
+| GET    | /artist/{artistId}/album | Returns all albums that are linked with the artist with the specified ID | N/A                                                          |
+| GET    | /artist/{artistId}/song  | Returns all songs that are linked with the artist with the specified ID  | N/A                                                          |
+
+### /album
+
+| Method | Route                 | Description                                                            | Schema (JSON)                                                 |
+| ------ | --------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------- |
+| GET    | /album                | Returns all albums                                                     | N/A                                                           |
+| GET    | /album/{albumId}      | Returns album with specified ID                                        | N/A                                                           |
+| PATCH  | /album/{albumId}      | Updates album with specified ID                                        | <pre>{<br /> "name"?: STRING,<br /> "year"?: INTEGER<br />}   |
+| DELETE | /album/{albumId}      | Deletes album with specified ID                                        | N/A                                                           |
+| POST   | /album/{albumId}/song | Creates a new song and links it to the album with the specified ID     | <pre>{<br /> "name": STRING,<br /> "position": INTEGER<br />} |
+| GET    | /album/{albumId}/song | Returns all songs that are linked with the album with the specified ID | N/A                                                           |
+
+### /song
+
+| Method | Route          | Description                    | Schema (JSON)                                                   |
+| ------ | -------------- | ------------------------------ | --------------------------------------------------------------- |
+| GET    | /song          | Returns all songs              | N/A                                                             |
+| GET    | /song/{songId} | Returns song with specified ID | N/A                                                             |
+| PATCH  | /song/{songId} | Updates song with specified ID | <pre>{<br /> "name"?: STRING,<br /> "position"?: INTEGER<br />} |
+| DELETE | /song/{songId} | Deletes song with specified ID | N/A                                                             |
 
 ## Attribution
 
